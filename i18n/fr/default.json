@@ -1,0 +1,21 @@
+{
+    "header": {
+        "navigation": {
+            "about": "À propos",
+            "rooms": "Chambres",
+            "bab": "Gîtes",
+            "services": "Services",
+            "localization": "Localisation",
+            "contact": "Contact"
+        },
+        "buttons": {
+            "menu": "Menu",
+            "book_now_label": "Réservez"
+        }
+    },
+    "homepage": {
+        "buttons": {
+            "book_now_label": "Réservez votre séjour"
+        }
+    }
+}
