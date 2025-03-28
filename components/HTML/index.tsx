@@ -12,4 +12,6 @@ const HTML = memo((props: Props) => {
   return <html lang={locale} dir={dir(locale)} {...props} />
 });
 
+HTML.displayName = 'HTML';
+
 export default HTML;

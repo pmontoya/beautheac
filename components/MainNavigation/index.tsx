@@ -11,11 +11,11 @@ import { Language } from '@/types/localization';
 import useDictionary from '@/hooks/useDictionary';
 
 const navigation = [
-  { name: 'about', href: '/#about' },
-  { name: 'services', href: '/#amenities' },
-  { name: 'localization', href: '/#location' },
+  { name: 'about', href: '#about' },
+  { name: 'services', href: '#amenities' },
+  { name: 'localization', href: '#location' },
   { name: 'bab', href: '/gites' },
-  { name: 'contact', href: '/#contact' },
+  { name: 'contact', href: '#contact' },
 ];
 
 type Props = {
@@ -40,21 +40,22 @@ const MainNavigation = ({ title, language }: Props) => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          {navigation.map((item) => (
-            <Link
-              locale={language}
-              key={item.name}
-              href={item.href}
-              className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
-                pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
-                  ? 'text-primary'
-                  : 'text-foreground',
-              )}
-            >
-              {t(`header.navigation.${item.name}`)}
-            </Link>
-          ))}
+          {navigation.map((item) =>
+            (
+              <Link
+                locale={language}
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  'text-sm font-medium transition-colors hover:text-primary',
+                  pathname === `/${language}${item.href}` || (item.href !== '/' && pathname?.startsWith(`/${language}${item.href}`))
+                    ? 'text-primary'
+                    : 'text-foreground',
+                )}
+              >
+                {t(`header.navigation.${item.name}`)}
+              </Link>
+            ))}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -80,7 +81,7 @@ const MainNavigation = ({ title, language }: Props) => {
                     href={item.href}
                     className={cn(
                       'text-sm font-medium transition-colors hover:text-primary',
-                      pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))
+                      pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href))
                         ? 'text-primary'
                         : 'text-foreground',
                     )}

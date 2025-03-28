@@ -12,7 +12,7 @@ export default function useLocale(): Language {
 
     const localeFromParams = useMemo(() => {
         return params?.locale as Language | undefined;
-    }, [params.locale]);
+    }, [params?.locale]);
 
     const localeFromPathname = useMemo(() => {
         return pathname?.split?.("/")?.[1] as Language | undefined;
